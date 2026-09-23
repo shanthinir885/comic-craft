@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ComicCraft — AI Comic Story Creator</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(rgba(20,20,40,0.55), rgba(20,20,40,0.55)),
+                  url('/static/images/background.jpg') center/cover no-repeat;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      box-sizing: border-box;
+    }
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+      padding: 36px 40px;
+      width: 100%;
+      max-width: 480px;
+    }
+    h1 { margin-top: 0; font-size: 1.6rem; color: #222; }
+    p.subtitle { color: #666; margin-bottom: 24px; }
+    label { display: block; font-weight: 600; margin: 14px 0 6px; color: #333; }
+    input[type=text], textarea, select {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-sizing: border-box;
+      font-size: 0.95rem;
+    }
+    textarea { resize: vertical; min-height: 80px; }
+    button {
+      margin-top: 24px;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #5b3df5;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    button:hover { background: #4630c9; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>ComicCraft</h1>
+    <p class="subtitle">Turn a simple idea into a full AI-generated comic.</p>
+    <form action="/generate" method="post">
+      <label for="story_prompt">Story Prompt</label>
+      <textarea id="story_prompt" name="story_prompt" placeholder="A brave fox exploring an enchanted forest..." required></textarea>
+
+      <label for="character_name">Main Character Name</label>
+      <input type="text" id="character_name" name="character_name" placeholder="e.g. Ember" required>
+
+      <label for="setting">Setting</label>
+      <select id="setting" name="setting" required>
+        <option value="forest">Forest</option>
+        <option value="school">School</option>
+        <option value="space">Space</option>
+        <option value="city">City</option>
+      </select>
+
+      <label for="tone">Story Tone</label>
+      <select id="tone" name="tone" required>
+        <option value="light-hearted">Light-hearted</option>
+        <option value="dramatic">Dramatic</option>
+        <option value="poetic">Poetic</option>
+        <option value="funny">Funny</option>
+      </select>
+
+      <label for="art_style">Art Style</label>
+      <select id="art_style" name="art_style" required>
+        <option value="anime">Anime</option>
+        <option value="pixel art">Pixel Art</option>
+        <option value="comic book">Comic Book</option>
+        <option value="realistic">Realistic</option>
+      </select>
+
+      <button type="submit">Generate My Comic</button>
+    </form>
+  </div>
+</body>
+</html>
